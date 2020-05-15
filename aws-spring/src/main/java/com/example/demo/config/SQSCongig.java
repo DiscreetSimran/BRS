@@ -21,8 +21,8 @@ public class SQSCongig {
 	@Value("${cloud.aws.credentials.secret-key}")
 	private String awsSecretKey;*/
 	
-	String awsAccessKey = "AKIATONWE3ACEUJ5RPQE";
-	String awsSecretKey = "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";
+	String awsAccessKey = "access key";
+	String awsSecretKey = "secret - key";
 		
 	@Bean
 	public AmazonSQSBufferedAsyncClient amazonSQS() {
