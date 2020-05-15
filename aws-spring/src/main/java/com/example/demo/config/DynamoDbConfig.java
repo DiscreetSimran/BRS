@@ -20,10 +20,10 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 public class DynamoDbConfig {
 
 	//@Value("${amazon.access.key}")
-	private String awsAccessKey="AKIATONWE3ACEUJ5RPQE";
+	private String awsAccessKey="access - key";
 
 	//@Value("${amazon.access.secret-key}")
-	private String awsSecretKey="mWpiMV9+qXufAwFUVDfW8KjaoHXfAp0F/KnAszNv";
+	private String awsSecretKey="secret - key";
 
 	//@Value("${amazon.region}")
 	private String awsRegion="us-east-1";
@@ -31,12 +31,10 @@ public class DynamoDbConfig {
 	//@Value("${amazon.end-point.url}")
 	private String awsDynamoDBEndPoint="dynamodb.us-east-1.amazonaws.com";
 	
-	//String a="AKIATONWE3ACOVNIS4NV";
-	//String b="6Qq9sgzFSxa+jq6Lmxv9O3fDlFhnkXzNjlYvTFy4";
+	
 	
 	//AWSCredentials credentials = new BasicAWSCredentials(
-		//	  "AKIATONWE3ACOVNIS4NV", 
-			//  "6Qq9sgzFSxa+jq6Lmxv9O3fDlFhnkXzNjlYvTFy4"
+		//	  
 			//);
 
 	@Bean
