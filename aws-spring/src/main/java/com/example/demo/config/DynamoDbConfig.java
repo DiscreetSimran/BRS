@@ -1,0 +1,53 @@
+package com.example.demo.config;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+
+import com.amazonaws.auth.AWSCredentials;
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.client.builder.AwsClientBuilder;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+
+@PropertySource(value="application.yml")
+@Configuration
+public class DynamoDbConfig {
+
+	//@Value("${amazon.access.key}")
+	private String awsAccessKey="AKIATONWE3ACEUJ5RPQE";
+
+	//@Value("${amazon.access.secret-key}")
+	private String awsSecretKey="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";
+
+	//@Value("${amazon.region}")
+	private String awsRegion="us-east-1";
+
+	//@Value("${amazon.end-point.url}")
+	private String awsDynamoDBEndPoint="dynamodb.us-east-1.amazonaws.com";
+	
+	//String a="AKIATONWE3ACOVNIS4NV";
+	//String b="6Qq9sgzFSxa+jq6Lmxv9O3fDlFhnkXzNjlYvTFy4";
+	
+	//AWSCredentials credentials = new BasicAWSCredentials(
+		//	  "AKIATONWE3ACOVNIS4NV", 
+			//  "6Qq9sgzFSxa+jq6Lmxv9O3fDlFhnkXzNjlYvTFy4"
+			//);
+
+	@Bean
+	public DynamoDBMapper mapper() {
+		return new DynamoDBMapper(amazonDynamoDBConfig());
+	}
+
+	public AmazonDynamoDB amazonDynamoDBConfig() {
+		return AmazonDynamoDBClientBuilder.standard()
+				.withEndpointConfiguration( new AwsClientBuilder.EndpointConfiguration( awsDynamoDBEndPoint,awsRegion))
+				.withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials(awsAccessKey, awsSecretKey)))
+				.build();
+	}
+}

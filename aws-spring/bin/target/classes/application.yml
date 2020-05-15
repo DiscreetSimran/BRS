@@ -1,0 +1,12 @@
+cloud:
+  aws:
+    credentials:
+      access-key: AKIAJYPV7IILMT2EDDMA
+      secret-key: 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
+    end-point:
+      uri: https://sqs.us-east-1.amazonaws.com/237142071300/spring-sqs.fifo
+    region:
+      auto: false
+      static: us-east-1
+    stack:
+      auto: false

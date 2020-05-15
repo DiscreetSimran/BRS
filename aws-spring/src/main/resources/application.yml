@@ -1,0 +1,14 @@
+cloud:
+  aws:
+    credentials:
+      access-key: AKIATONWE3ACEUJ5RPQE
+      secret-key: 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
+    end-point:
+      uri: https://sqs.us-east-1.amazonaws.com/237142071300/newsqs.fifo
+    region:
+      auto: false
+      static: us-east-1
+    stack:
+      auto: false
+server:
+    port: 9003
